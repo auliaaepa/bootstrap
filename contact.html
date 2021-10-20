@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AuliAAEPA</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="assets/style/style.css" rel="stylesheet">
+	<script src="assets/script/login.js"></script>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<!-- Begin nav  -->
+	<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand text-primary fw-bold" href="#">AuliAAEPA</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link" aria-current="page" href="index.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="contact.html">Contact</a>
+					</li>
+				</ul>
+				<div class="d-flex">
+					<button class="btn btn-primary" data-toggle="modal" data-target="#loginModal" type="button">Login</button>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!-- End nav -->
+	
+	<!-- Begin modal login -->
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close bg-transparent fw-bold fs-4 border-0 float-end" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<form class="mt-4 container-md" id="formLogin" name="formLogin" novalidate onsubmit="return validateLogin();">
+						<h5 class="modal-title text-center mb-3" id="loginModalLabel">Login</h5>
+						<svg class="d-none" xmlns="http://www.w3.org/2000/svg">
+							<symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+								<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+							</symbol>
+							<symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+								<path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+							</symbol>
+						</svg>
+						<div id="alertLogin">
+
+						</div>
+						<div class="mb-2 ">
+							<label for="email" class="form-label">Email address</label>
+							<input id="email" name="email" type="email" class="form-control">
+						</div>
+						<div class="">
+							<label for="password" class="form-label">Password</label>
+							<input id="password" name="password" type="password" class="form-control" aria-describedby="passwordHelp">
+							<div id="passwordHelp" class="form-text text-end"><a href="#">Forgot password?</a></div>
+						</div>
+						<div class="mb-4 form-check">
+							<input type="checkbox" class="form-check-input" id="rememberCheck">
+							<label class="form-check-label" for="rememberCheck">Remember me</label>
+						</div>
+						<div class="d-grid mx-auto mb-2">
+							<button type="submit" class="btn btn-primary" id="buttonLogin">Login</button>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer justify-content-center">
+					<p>Don't have an account? <span><a href="#">Sign Up</a></span></p>
+				</div>
+			</div>
+	  </div>
+	</div>
+	<!-- End modal login -->
+
+	<!-- Begin contact -->
+	<div class="container-lg pt-3">
+		<div class="row">
+            <div class="col-12 text-center mb-3">
+                <h1>Contact Us</h1>
+                <p>contact us if you find any problems in our service</p>
+            </div>
+            <div class="col-lg-6 col-md-12"> 
+                <div class="mx-2 mb-3">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.9115459219825!2d112.73486631385151!3d-7.250907573238704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7f941963a2f7f%3A0xd642303d6f5f0b2f!2sJl.%20Pahlawan%20No.10%2C%20RT.006%2FRW.05%2C%20Alun-alun%20Contong%2C%20Kec.%20Bubutan%2C%20Kota%20SBY%2C%20Jawa%20Timur%2060174!5e0!3m2!1sid!2sid!4v1634657566802!5m2!1sid!2sid" 
+                        width="100%" height="320px" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="row px-3 pb-3 mx-2 mb-5 text-center">
+                    <div class="col-4">
+                        <div class="mx-auto mb-1 shadow rounded-circle lh-lg bg-primary text-white">
+                            <i class="fa fa-map-marker fa-lg"></i>
+                        </div>
+                        <div class="fw-bold">Address</div>
+                        <div class="small text-muted">10 Pahlawan Street,</div>
+                        <div class="small text-muted">Surabaya</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="mx-auto mb-1 shadow rounded-circle lh-lg bg-primary text-white">
+                            <i class="fa fa-phone fa-lg"></i>
+                        </div>
+                        <div class="fw-bold">Phone</div>
+                        <div class="small text-muted">+62812 3344 5566</div>
+                        <div class="small text-muted">+62812 3344 5567</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="mx-auto mb-1 shadow rounded-circle lh-lg bg-primary text-white">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="fw-bold">Email</div>
+                        <div class="small text-muted">email@gmail.com</div>
+                        <div class="small text-muted">info.email@gmail.com</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 ">
+                <form class="row g-3 shadow px-3 pb-3 mx-2 mb-5 bg-body rounded">
+                    <div class="col-12">
+                        <label for="contact-name" class="form-label">Full Name*</label>
+                        <input type="text" class="form-control" id="contact-name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="contact-email" class="form-label">Email*</label>
+                        <input type="email" class="form-control" id="contact-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="contact-telp" class="form-label">Phone</label>
+                        <input type="tel" class="form-control" id="contact-telp" placeholder="Enter phone number">
+                    </div>
+                    <div class="col-12">
+                        <label for="contact-subject" class="form-label">Subject*</label>
+                        <select id="contact-subject" class="form-select" required>
+                            <option value="" selected>Select one</option>
+                            <option>Question</option>
+                            <option>Suggestion</option>
+                            <option>Service Complaints</option>
+                            <option>Product Complaints</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label for="contact-message" class="form-label">Message*</label>
+                        <textarea class="form-control" id="contact-message" placeholder="Your message here..." rows="3" required></textarea>
+                    </div>
+                    <div class="d-grid mx-auto mb-2">
+                        <button type="submit" class="btn btn-primary">SEND MESSAGE <i class="fa fa-arrow-circle-right"></i></button>                        </button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+	</div>
+	<!-- End contact -->
+
+	<!-- Begin footer -->
+	<div class="d-flex flex-column bg-dark text-white align-items-center text-center mt-5 py-3">
+		<div class="mb-2">FIND US</div>
+		<div class="d-flex flex-row mb-3">
+			<div class="rounded-circle lh-base bg-white mx-1">
+				<a href="https://www.instagram.com/" target="_blank" class="link-dark"><i class="fa fa-instagram"></i></a>
+			</div>
+			<div class="rounded-circle lh-base bg-white mx-1">
+				<a href="https://www.youtube.com/" target="_blank" class="link-dark"><i class="fa fa-facebook"></i></a>
+			</div>
+			<div class="rounded-circle lh-base bg-white mx-1">
+				<a href="https://www.facebook.com/" target="_blank" class="link-dark"><i class="fa fa-youtube-play"></i></a>
+			</div>
+		</div>
+		<div>&copy; 2021 AuliAAEPA</div>
+	</div>
+	<!-- End footer -->
+</body>
+</html>

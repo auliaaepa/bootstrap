@@ -1,0 +1,31 @@
+.navbar-brand {
+    color: #2fdfff!important;
+}
+.close { 
+    opacity: .5 ;
+    -webkit-appearance: none;
+}
+
+.close:focus,
+.close:hover { 
+    opacity: .75 
+}
+
+.carousel-inner img {
+    max-height: 480px;
+}
+
+.col-4 .rounded-circle {
+    width: 36px; 
+    height: 36px;
+}
+
+.flex-row .rounded-circle {
+    width: 28px; 
+    height: 28px;
+}
+
+.flex-row .rounded-circle:hover {
+    background-color: #2fdfff!important;
+}
+
